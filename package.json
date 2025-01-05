@@ -15,5 +15,10 @@
     "playwright-chromium": "^1.49.1",
     "serve": "^14.2.4",
     "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@iconify-json/devicon": "^1.2.11",
+    "@iconify-json/mdi": "^1.2.2",
+    "@iconify-json/vscode-icons": "^1.2.8"
   }
 }
