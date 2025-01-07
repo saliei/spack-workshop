@@ -12,10 +12,5 @@ print("Hello from Python!")
 x = 10
 y = 20
 print(f"Sum: {x + y}")
-
-# You can even use numpy!
-import numpy as np
-arr = np.array([1, 2, 3, 4, 5])
-print(f"NumPy array mean: {arr.mean()}")
 ```
 
