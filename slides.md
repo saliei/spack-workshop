@@ -10,6 +10,7 @@ exportFilename: skao-spack-workshop
 lineNumbers: true
 themeConfig:
     primary: "#ca1167"
+    codeFontSize: 0.8em;
 favicon: https://api.iconify.design/ic:outline-personal-video.svg
 fonts:
     sans: Robot
@@ -67,4 +68,12 @@ src: ./pages/01-spack.md
 
 ---
 src: ./pages/02-spack.md
+---
+
+---
+src: ./pages/03-spack.md
+---
+
+---
+src: ./pages/04-spack.md
 ---
