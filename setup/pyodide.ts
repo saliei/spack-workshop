@@ -1,8 +1,13 @@
-import { loadPyodide } from 'pyodide'
 import type { PyodideInterface } from 'pyodide'
 
 let pyodide: PyodideInterface | null = null
 let initPromise: Promise<PyodideInterface> | null = null
+
+declare global {
+  interface Window {
+    loadPyodide: (config: any) => Promise<PyodideInterface>
+  }
+}
 
 export async function initPyodide() {
   if (pyodide) return pyodide
@@ -10,9 +15,20 @@ export async function initPyodide() {
 
   initPromise = (async () => {
     try {
+      // Load Pyodide script if not already loaded
+      if (!window.loadPyodide) {
+        await new Promise<void>((resolve, reject) => {
+          const script = document.createElement('script')
+          script.src = 'https://cdn.jsdelivr.net/pyodide/v0.27.0/full/pyodide.js'
+          script.onload = () => resolve()
+          script.onerror = () => reject(new Error('Failed to load Pyodide'))
+          document.head.appendChild(script)
+        })
+      }
+
       // Initialize Pyodide
-      pyodide = await loadPyodide({
-        indexURL: '/node_modules/pyodide'
+      pyodide = await window.loadPyodide({
+        indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.27.0/full/'
       })
 
       // Set up stdout/stderr capturing
