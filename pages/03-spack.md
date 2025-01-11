@@ -1,8 +1,8 @@
-<<< @/snippets/package.py py {monaco}{lineNumbers:true}
+<<< @/snippets/package.py py {monaco}{lineNumbers:'on'}
 
 another
 
-```ts {monaco}{lineNumbers:true}
+```ts {monaco}{lineNumbers:'on'}
 editableEditor.addAction({
 id: 'slidev-save',
 label: 'Save',
