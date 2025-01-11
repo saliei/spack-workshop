@@ -12,10 +12,12 @@
     "@slidev/theme-apple-basic": "^0.25.1",
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
+    "@xterm/xterm": "^5.5.0",
     "playwright-chromium": "^1.49.1",
     "pyodide": "^0.27.0",
     "serve": "^14.2.4",
-    "vue": "^3.5.13"
+    "vue": "^3.5.13",
+    "xterm": "^5.3.0"
   },
   "devDependencies": {
     "@iconify-json/devicon": "^1.2.11",
