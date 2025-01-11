@@ -7,7 +7,7 @@ author: Saeid Aliei
 keywords: spack,workshop,SKAO
 download: true
 exportFilename: skao-spack-workshop
-lineNumbers: true
+lineNumbers: 'on'
 themeConfig:
     primary: "#ca1167"
     codeFontSize: 0.8em;
