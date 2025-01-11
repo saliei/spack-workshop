@@ -11,7 +11,7 @@ lineNumbers: true
 themeConfig:
     primary: "#ca1167"
     codeFontSize: 0.8em;
-favicon: https://api.iconify.design/ic:outline-personal-video.svg
+favicon: "./images/favicon.png"
 fonts:
     sans: Robot
     serif: Robot Slab
@@ -76,4 +76,8 @@ src: ./pages/03-spack.md
 
 ---
 src: ./pages/04-spack.md
+---
+
+---
+src: ./pages/05-spack.md
 ---
