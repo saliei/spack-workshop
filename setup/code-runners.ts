@@ -8,6 +8,7 @@ declare global {
 
 let pyodide: any = null
 let initPromise: Promise<any> | null = null
+const loadedPackages = new Set<string>()
 
 async function initPyodide() {
   if (pyodide) return pyodide
@@ -46,6 +47,9 @@ async function initPyodide() {
         sys.stderr = OutputCatcher()
       `)
 
+      // Load micropip by default
+      await pyodide.loadPackage('micropip')
+
       return pyodide
     } catch (error) {
       initPromise = null
@@ -56,10 +60,46 @@ async function initPyodide() {
   return initPromise
 }
 
+// Function to detect and load required packages
+async function loadRequiredPackages(code: string) {
+  // Common packages to check for
+  const packageMap: Record<string, string> = {
+    'numpy': 'numpy',
+    'pandas': 'pandas',
+    'matplotlib': 'matplotlib',
+    'scipy': 'scipy',
+    'sklearn': 'scikit-learn',
+    'plt': 'matplotlib'  // Common alias for matplotlib.pyplot
+  }
+
+  const packagesToLoad = new Set<string>()
+
+  // Check for import statements
+  const importRegex = /^(?:from|import)\s+(\w+)/gm
+  let match
+
+  while ((match = importRegex.exec(code)) !== null) {
+    const packageName = match[1]
+    if (packageMap[packageName] && !loadedPackages.has(packageName)) {
+      packagesToLoad.add(packageMap[packageName])
+      loadedPackages.add(packageName)
+    }
+  }
+
+  if (packagesToLoad.size > 0) {
+    const py = await initPyodide()
+    // Load packages in parallel
+    await py.loadPackage(Array.from(packagesToLoad))
+  }
+}
+
 async function executePythonCode(code: string) {
   const py = await initPyodide()
   
   try {
+    // Load any required packages first
+    await loadRequiredPackages(code)
+
     // Reset stdout and stderr
     await py.runPythonAsync(`
       sys.stdout.value = ''
