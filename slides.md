@@ -56,7 +56,7 @@ Software Engineer
 </p>
 
 <div class="fixed bottom-4 right-4">
-  <img src="../images/skao_logo.webp" alt="SKAO Logo" class="w-12 h-4">
+  <img src="/images/skao_logo.webp" alt="SKAO Logo" class="w-12 h-4">
 </div>
 
 
