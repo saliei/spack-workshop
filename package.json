@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "build": "slidev build",
-    "dev": "slidev --open",
-    "export": "slidev export"
+    "export": "slidev export",
+	"slidev": "slidev --open",
+    "python-server": "python server/python_runner.py",
+	"dev": "concurrently \"slidev --open\" \"python server/python_runner.py\""
   },
   "dependencies": {
     "@slidev/cli": "^0.51.0-beta.4",
@@ -13,16 +15,17 @@
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
     "@xterm/xterm": "^5.5.0",
+    "monaco": "^1.201704190613.0",
     "playwright-chromium": "^1.49.1",
     "pyodide": "^0.27.0",
     "serve": "^14.2.4",
-    "vue": "^3.5.13",
-    "xterm": "^5.3.0"
+    "vue": "^3.5.13"
   },
   "devDependencies": {
     "@iconify-json/devicon": "^1.2.11",
     "@iconify-json/mdi": "^1.2.2",
     "@iconify-json/vscode-icons": "^1.2.8",
-    "@shikijs/monaco": "^1.26.1"
+    "@shikijs/monaco": "^1.26.1",
+    "concurrently": "^9.1.2"
   }
 }
