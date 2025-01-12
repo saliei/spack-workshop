@@ -26,6 +26,7 @@ htmlAttr:
 class: text-center
 transition: slide-left
 mdc: true
+monaco: true
 ---
 
 A mini workshop on
