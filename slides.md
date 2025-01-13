@@ -56,7 +56,7 @@ Software Engineer
     </a>
 </p>
 
-<div class="fixed bottom-4 right-4">
+<div class="fixed bottom-2 right-4">
   <img src="/images/skao_logo.webp" alt="SKAO Logo" class="w-12 h-4">
 </div>
 
@@ -64,7 +64,15 @@ Software Engineer
 <!--introduce yourself, the why of workshop, and the content layout-->
 
 ---
+src: ./pages/00-spack.md
+---
+
+---
 src: ./pages/01-spack.md
+---
+
+---
+src: ./pages/01.01-spack.md
 ---
 
 ---
