@@ -25,6 +25,21 @@ const emit = defineEmits(['update:modelValue'])
 const editorContainer = ref(null)
 let editor = null
 
+//import * as monaco from 'monaco-editor';
+
+if (typeof window !== 'undefined') {
+  window.MonacoEnvironment = {
+    getWorkerUrl: function (workerId, label) {
+      return `data:application/javascript;base64,${btoa(`
+        self.MonacoEnvironment = {
+          baseUrl: 'https://unpkg.com/monaco-editor@0.34.1/min/'
+        };
+        importScripts('https://unpkg.com/monaco-editor@0.34.1/min/vs/base/worker/workerMain.js');
+      `)}`;
+    },
+  };
+}
+
 onMounted(() => {
   editor = monaco.editor.create(editorContainer.value, {
     value: props.modelValue,
@@ -41,6 +56,7 @@ onMounted(() => {
     folding: false,
     lineDecorationsWidth: 8,
     lineNumbersWidth: 20,
+    fontSize: 2,
     ...props.options
   })
 

@@ -1,5 +1,37 @@
 :root {
-  --slidev-code-font-size: 0.4em;
-  --slidev-code-line-height: 2;
+  --slidev-code-font-size: 0.45em;
+  --slidev-code-line-height: 0.1;
   --slidev-code-padding: 1px;
 }
+.slidev-code-line-numbers .slidev-code code .line::before {
+    margin-right: 0.5rem;
+}
+
+pre {
+  max-height: 430px;
+}
+
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ca1167;
+}
+
+
+

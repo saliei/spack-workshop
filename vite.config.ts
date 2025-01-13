@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 
+
 export default defineConfig({
   monaco: {
     languages: ['typescript', 'javascript', 'python']
@@ -11,5 +12,8 @@ export default defineConfig({
       fs: {
           allow: ["..."]  // Allow serving files from node_modules
       }
+  },
+  features: {
+      progress: true,
   }
 })
